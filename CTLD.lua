@@ -47,7 +47,7 @@ ctld.maximumMoveDistance = 2000 -- max distance for troops to move from drop poi
 
 ctld.minimumDeployDistance = 1000 -- minimum distance from a friendly pickup zone where you can deploy a crate
 
-ctld.numberOfTroops = 10 -- default number of troops to load on a transport heli or C-130 
+ctld.numberOfTroops = 8 -- default number of troops to load on a transport heli or C-130 
 							-- also works as maximum size of group that'll fit into a helicopter unless overridden
 ctld.enableFastRopeInsertion = true -- allows you to drop troops by fast rope
 ctld.fastRopeMaximumHeight = 18.28 -- in meters which is 60 ft max fast rope (not rappell) safe height
@@ -447,11 +447,8 @@ ctld.unitActions = {
 -- You can also add an optional coalition side to limit the group to one side
 -- for the side - 2 is BLUE and 1 is RED
 ctld.loadableGroups = {
-    {name = "Standard Group", inf = 6, mg = 2, at = 2 }, -- will make a loadable group with 5 infantry, 2 MGs and 2 anti-tank for both coalitions
-    {name = "Anti Air", inf = 2, aa = 3  },
-    {name = "Anti Tank", inf = 2, at = 6  },
-    {name = "Mortar Squad", mortar = 6 },
-    -- {name = "Mortar Squad Red", inf = 2, mortar = 5, side =1 }, --would make a group loadable by RED only
+  {name = "Assault Group", inf = 5, mg = 2, at = 1 },
+  {name = "SpecOps Group", inf = 2, at = 2, aa = 1  },
 }
 
 -- ************** SPAWNABLE CRATES ******************
@@ -1393,51 +1390,51 @@ function ctld.spawnCrateStatic(_country, _unitId, _point, _name, _weight,_side)
                 --            ["cargoDisplayName"] = "cargo123",
                 --            ["CargoDisplayName"] = "cargo123",
             }
-        
+
 --[[ Placeholder for different type of cargo containers. Let's say pipes and trunks, fuel for FOB building
                         ["shape_name"] = "ab-212_cargo",
 			["type"] = "uh1h_cargo" --new type for the container previously used
-			
+
 			["shape_name"] = "ammo_box_cargo",
                         ["type"] = "ammo_cargo",
-			
+
 			["shape_name"] = "barrels_cargo",
                         ["type"] = "barrels_cargo",
 
                         ["shape_name"] = "bw_container_cargo",
                         ["type"] = "container_cargo",
-			
+
                         ["shape_name"] = "f_bar_cargo",
                         ["type"] = "f_bar_cargo",
-			
+
 			["shape_name"] = "fueltank_cargo",
                         ["type"] = "fueltank_cargo",
-			
+
 			["shape_name"] = "iso_container_cargo",
 			["type"] = "iso_container",
-			
+
 			["shape_name"] = "iso_container_small_cargo",
 			["type"] = "iso_container_small",
-			
+
 			["shape_name"] = "oiltank_cargo",
                         ["type"] = "oiltank_cargo",
-                        
+
 			["shape_name"] = "pipes_big_cargo",
-                        ["type"] = "pipes_big_cargo",			
-			
+                        ["type"] = "pipes_big_cargo",
+
 			["shape_name"] = "pipes_small_cargo",
 			["type"] = "pipes_small_cargo",
-			
+
 			["shape_name"] = "tetrapod_cargo",
 			["type"] = "tetrapod_cargo",
-			
+
 			["shape_name"] = "trunks_long_cargo",
 			["type"] = "trunks_long_cargo",
-			
+
 			["shape_name"] = "trunks_small_cargo",
 			["type"] = "trunks_small_cargo",
 ]]--
-	else	
+	else
             _crate = {
                 ["shape_name"] = "GeneratorF",
                 ["type"] = "GeneratorF",
